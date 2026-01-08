@@ -2,5 +2,6 @@ go 1.25.5
 
 use (
 	./core
+	./renderers/term
 	./renderers/web
 )
