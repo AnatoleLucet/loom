@@ -2,97 +2,79 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"time"
 
 	"github.com/AnatoleLucet/loom"
 	. "github.com/AnatoleLucet/loom-term/components"
-	"github.com/AnatoleLucet/loom-term/internal"
-	"github.com/AnatoleLucet/loom-term/opentui"
 	. "github.com/AnatoleLucet/loom/components"
+
 	. "github.com/AnatoleLucet/loom/signals"
 )
 
-// triangle returns a value that bounces between 0 and max
-func triangle(t, max int) int {
-	period := 2 * max
-	v := t % period
-	if v > max {
-		return period - v
-	}
-	return v
-}
-
 func MyApp() loom.Node {
-	termWidth, _, _ := internal.TerminalSize()
-	maxPos := termWidth - 2 // Leave room for the 2-wide bar
-
 	frame, setFrame := Signal(0)
-	pos, setPos := Signal(0)
+	childs, setChilds := Signal([]int{})
 
-	return InlineRenderer(func() loom.Node {
-		// return FullscreenRenderer(func() loom.Node {
+	go func() {
+		for {
+			time.Sleep(time.Second / 60)
+			setFrame(frame() + 1)
+		}
+	}()
 
-		go func() {
-			internal.Animate(internal.Animation{
-				Tick: func(progress float64) {
-					setFrame(frame() + 1)
-					setPos(triangle(frame(), maxPos))
-				},
-			})
-		}()
+	go func() {
+		for {
+			time.Sleep(time.Second / 60)
+			setChilds(append(childs(), frame()))
+		}
+	}()
 
-		return Box(
-			// Console(),
+	// for range 100 {
+	// 	setChilds(append(childs(), frame()))
+	// }
 
-			Box(
-				BindText(func() string {
-					return fmt.Sprintf("Frame: %d, Position: %d, MaxPos: %d", frame(), pos(), maxPos)
-				}),
+	return Box(
+		Console(),
 
-				&Style{
-					Height: 1,
-					Width:  "100%",
-				},
-			),
+		BindText(func() string { return fmt.Sprintf("Length: %d", len(childs())) }),
 
-			// Progress bar container
-			Box(
-				// Moving bar - position based on frame count
-				Bind(func() loom.Node {
-					return Box(
-						&Style{
-							MarginLeft:      pos(), // Integer position - no rounding needed
-							Width:           2,
-							Height:          2,
-							BackgroundColor: opentui.NewRGBA(0.2, 0.8, 0.4, 1), // green
-						},
-					)
-				}),
+		Box(
+			For(childs, func(child Accessor[int], index Accessor[int]) loom.Node {
+				return Box(
+					BindText(func() string { return fmt.Sprintf("%d", frame()) }),
+					Apply(Style{
+						Width:           4,
+						JustifyContent:  "center",
+						BackgroundColor: RGBA(0, 0, 150, 1),
+					}),
+				)
+			}),
 
-				&Style{
-					Width:           "100%",
-					Height:          2,
-					BackgroundColor: opentui.NewRGBA(0.2, 0.2, 0.2, 1), // dark gray
-					FlexDirection:   "row",
-					AlignItems:      "center",
-				},
-			),
+			Apply(Style{
+				GapAll:       "2pt",
+				FlexWrap:     "wrap",
+				AlignContent: "start",
+			}),
+		),
 
-			&Style{
-				Width:         "100%",
-				FlexDirection: "column",
-				MarginTop:     2,
-			},
-		)
-	})
+		Apply(Style{
+			Width:  "100%",
+			Height: "100%",
+
+			FlexDirection: "column",
+		}),
+	)
 }
 
 func main() {
 	app := NewApp()
 
-	for err := range app.Run(MyApp) {
-		fmt.Printf("Error: %v\n", err)
+	for err := range app.Run(RenderFullscreen, MyApp) {
+		// for err := range app.Run(RenderInline, MyApp) {
 		app.Close()
+		log.Fatal(err)
 		os.Exit(1)
 	}
 }
