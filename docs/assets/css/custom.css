@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+  --hx-color-white: #f9f8f5;
+  --hx-color-dark: #1a1916;
+
+  --primary-hue: 45deg;
+  --primary-saturation: 10%;
+  --primary-lightness: 70%;
+}
+
+* {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-ligatures: none;
+}
+
+.hextra-nav-container {
+  border-bottom: 0px solid var(--hx-color-dark);
+}
+
+.nav-link:not(.nolink):not([rel="noreferrer"])::before {
+  content: "[ ]";
+}
+
+.nav-link:not(.nolink):not([rel="noreferrer"]).active::before {
+  content: "[*]";
+}
+
+#home-hero {
+  margin-top: 18vh;
+  margin-bottom: 20vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-hero>h1 {
+  font-size: 2.5rem;
+}
+
+#home-hero>a {
+  font-size: 0.9rem;
+}
+
+#home-bottom-hero {
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-bottom-hero>h3 {
+  font-size: 1.6rem;
+}
+
+#home-bottom-hero>a {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}

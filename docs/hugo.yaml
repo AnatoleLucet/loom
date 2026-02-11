@@ -1,0 +1,34 @@
+baseURL: https://loomui.dev
+languageCode: en-us
+title: loom
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+params:
+  navbar:
+    displayLogo: false
+    title: 「#」 loom
+  footer:
+    displayPoweredBy: false
+
+menu:
+  main:
+    - name: DOCS
+      pageRef: /docs
+      weight: 1
+    - name: TERM
+      pageRef: /term
+      weight: 2
+    - name: WEB
+      pageRef: /web
+      weight: 3
+    - name: BLOG
+      pageRef: /blog
+      weight: 4
+    - name: "|"
+      weight: 5
+    - name: "GITHUB"
+      weight: 6
+      url: "https://github.com/AnatoleLucet/loom"
