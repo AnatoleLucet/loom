@@ -7,11 +7,21 @@ module:
     - path: github.com/imfing/hextra
 
 params:
+  search:
+    enable: false
   navbar:
     displayLogo: false
     title: 「#」 loom
   footer:
     displayPoweredBy: false
+    displayCopyright: true
+  theme:
+    displayToggle: false
+
+cascade:
+  next: false
+  prev: false
+  breadcrumbs: false
 
 menu:
   main:

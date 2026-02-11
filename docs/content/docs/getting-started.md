@@ -1,5 +1,4 @@
 ---
 title: "GETTING STARTED"
-breadcrumbs: false
-weight: 1
+weight: 2
 ---

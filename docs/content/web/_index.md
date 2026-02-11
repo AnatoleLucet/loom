@@ -1,6 +1,6 @@
 ---
 title: "LOOM-WEB"
-breadcrumbs: false
+weight: 3
 cascade:
   type: docs
 ---

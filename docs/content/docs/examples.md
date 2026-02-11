@@ -1,16 +1,17 @@
 ---
 title: "EXAMPLES"
-breadcrumbs: false
 weight: 10
 ---
 
 #### A list of fruits
 
+coucou c'est super tout ca dis donc
+
 {{< tabs items="TERM,WEB" >}}
 
 {{< tab >}}
 
-```go {style=rose-pine-moon}
+```go {style=tokyonight-moon}
 func FruitList() Node {
     fruits, setFruits := Signal([]string{"banana", "apple", "orange"})
 
@@ -29,7 +30,7 @@ func FruitList() Node {
 
 {{< tab >}}
 
-```go {style=rose-pine-moon}
+```go {style=tokyonight-moon}
 func FruitList() Node {
     fruits, setFruits := Signal([]string{"banana", "apple", "orange"})
 
@@ -58,7 +59,7 @@ func FruitList() Node {
 
 {{< tab >}}
 
-```go {style=rose-pine-moon}
+```go {style=tokyonight-moon}
 func UserInput() Node {
     value, setValue := Signal("")
 
@@ -78,7 +79,7 @@ func UserInput() Node {
 
 {{< tab >}}
 
-```go {style=rose-pine-moon}
+```go {style=tokyonight-moon}
 func UserInput() Node {
     value, setValue := Signal("")
 

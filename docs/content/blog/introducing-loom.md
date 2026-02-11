@@ -1,7 +1,7 @@
 ---
 date: "2026-02-11T10:24:52+01:00"
 title: "Introducing Loom"
-description: "Loom is a new signal-based reactive component framework in Go."
+description: "The component framework for Go."
 ---
 
 ---
