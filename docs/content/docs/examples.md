@@ -3,12 +3,101 @@ title: "EXAMPLES"
 weight: 10
 ---
 
-#### A list of fruits
-
-coucou c'est super tout ca dis donc
+#### Counter
 
 {{< tabs items="TERM,WEB" >}}
+{{< tab >}}
 
+```go {style=tokyonight-moon}
+func Counter() Node {
+	count, setCount := Signal(0)
+
+    go func() {
+        for {
+            time.Sleep(time.Second)
+            setCount(count() + 1)
+        }
+    }()
+
+	return P(Text("Count: "), BindText(count))
+}
+```
+
+{{< /tab >}}
+{{< tab >}}
+
+```go {style=tokyonight-moon}
+func Counter() Node {
+	count, setCount := Signal(0)
+
+    go func() {
+        for {
+            time.Sleep(time.Second)
+            setCount(count() + 1)
+        }
+    }()
+
+	return P(Text("Count: "), BindText(count))
+}
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< rawhtml >}}<br/>{{< /rawhtml >}}
+
+#### Conditions
+
+{{< tabs items="TERM,WEB" >}}
+{{< tab >}}
+
+```go {style=tokyonight-moon}
+func Condition() Node {
+    display, setDisplay := Signal(false)
+
+    toggle := func(*EventMouse) {
+        setDisplay(!display())
+    }
+
+    return Box(
+        Box(Text("toggle"), On("click", toggle)),
+
+        Show(display, func() Node {
+            return Text("am i visible now?")
+        }),
+    )
+}
+```
+
+{{< /tab >}}
+{{< tab >}}
+
+```go {style=tokyonight-moon}
+func Condition() Node {
+    display, setDisplay := Signal(false)
+
+    toggle := func(*EventMouse) {
+        setDisplay(!display())
+    }
+
+    return Div(
+        Button(Text("toggle"), On("click", toggle)),
+
+        Show(display, func() Node {
+            return Text("am i visible now?")
+        }),
+    )
+}
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< rawhtml >}}<br/>{{< /rawhtml >}}
+
+#### Lists
+
+{{< tabs items="TERM,WEB" >}}
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
@@ -27,7 +116,6 @@ func FruitList() Node {
 ```
 
 {{< /tab >}}
-
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
@@ -46,17 +134,13 @@ func FruitList() Node {
 ```
 
 {{< /tab >}}
-
 {{< /tabs >}}
 
-{{< rawhtml >}}
-<br/>
-{{< /rawhtml >}}
+{{< rawhtml >}}<br/>{{< /rawhtml >}}
 
-#### Taking user input
+#### User input
 
 {{< tabs items="TERM,WEB" >}}
-
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
@@ -70,13 +154,12 @@ func UserInput() Node {
     return Box(
         P(Text("Value: "), BindText(value)),
 
-        Input(On("input", udpate)),
+        InputText(On("input", udpate)),
     )
 }
 ```
 
 {{< /tab >}}
-
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
@@ -100,5 +183,4 @@ func UserInput() Node {
 ```
 
 {{< /tab >}}
-
 {{< /tabs >}}

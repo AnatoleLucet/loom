@@ -26,13 +26,13 @@ cascade:
 menu:
   main:
     - name: DOCS
-      pageRef: /docs
+      pageRef: /docs/intro
       weight: 1
     - name: TERM
-      pageRef: /term
+      pageRef: /term/intro
       weight: 2
     - name: WEB
-      pageRef: /web
+      pageRef: /web/intro
       weight: 3
     - name: BLOG
       pageRef: /blog
