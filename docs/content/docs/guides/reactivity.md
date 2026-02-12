@@ -5,6 +5,8 @@ weight: 1
 
 An introduction to reactivity and signals.
 
+This document expects you to be familiar with loom's core concepts. If not -> [CORE CONCEPTS](/docs/concepts)
+
 ---
 
 > If you're coming from a signal-based JavaScript framework like SolidJS or Svelte, you will rapidly notice some [divergence](#scheduling) in the reactive model.
@@ -86,7 +88,37 @@ setCount(10) // prints "count: 10" to the terminal
 setCount(22) // prints "count: 22" to the terminal
 ```
 
-From there you've covered 3/4 of what reactivity is in loom. The rest are conveniences for this paradigm, and best practicies.
+### Binding
+
+Binding is the act of assigning a reactive signal to a part of the UI. For instance, _binding_ a text element's content to a signal's value means: whenever the signal changes, the text element's content gets updated with that value.
+
+If you're coming from a JavaScript framework, you might be used to implicit binding in JSX. But this is not the case with loom.
+
+Since loom is pure Go and without any compilation overhead, binding is explicit. _You_ decide what part of the UI updates.
+
+```go {style=tokyonight-moon}
+func Counter() Node {
+	count, setCount := Signal(0)
+
+    go func() {
+        for {
+            time.Sleep(time.Second)
+            setCount(count() + 1)
+        }
+    }()
+
+	return P(
+        Text("Count: "),
+        // BindText() takes a signal and returns a text Node.
+        // this Node gets updated each time `count` changes.
+        BindText(count),
+    )
+}
+```
+
+At first it might seem like a downgrade from JSX, but with time you will most likely see the benefits. To read more about binding -> [BINDING](/docs/guides/binding)
+
+From there you've covered 3/4 of what reactivity is in loom! The rest are conveniences for this paradigm, and best practicies.
 
 If you want to understand more you can read the following section [about scheduling](#scheduling), dive into [the references](http://localhost:1313/docs/reactivity/signal/), or take a look at [the reactive model](https://github.com/AnatoleLucet/sig) that was built to power loom.
 

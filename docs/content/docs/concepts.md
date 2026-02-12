@@ -13,7 +13,7 @@ They are the roots of the architecture that makes loom a composable and reusable
 
 Nodes are the most fundamental primitives. They represent each and every parts of your UI.
 
-A Node is responsible for displaying, updating, and destroying one or more parts that makes your UI. They are the synchronisation between your code, and what's displayed on the screen.
+A Node is responsible for displaying, updating, and destroying one or more parts of your UI. They are the synchronisation between your code, and what's displayed on the screen.
 
 But you will most likely never write a Node yourself. They are low-level and mostly spesific to [renderers](#renderer). Instead you will interact with higher-level abtractions built on top of them ([components](#component)).
 
@@ -33,7 +33,7 @@ func MyComponent() Node {
 }
 ```
 
-Loom (and the [renderer](#renderer) of your choice) provide various built-in components. Theses components can be used and composed in your own components to build your UI.
+Loom (and the [renderer](#renderer) of your choice) provide various built-in components. Theses components can be used and composed in your own components to build a complete UI.
 
 ```go {style=tokyonight-moon}
 import (
@@ -53,11 +53,36 @@ func MyComponent() Node {
 }
 ```
 
+Components are only called at mount. Meaning you can spin up goroutines for async work and update states from there!
+
+```go {style=tokyonight-moon}
+import (
+    . "github.com/AnatoleLucet/loom"
+    . "github.com/AnatoleLucet/loom/components"
+    . "github.com/AnatoleLucet/loom-term/components"
+)
+
+func Counter() Node {
+    // if your not sure what a signal is,
+    // read the next section about reactivity
+	count, setCount := Signal(0)
+
+    go func() {
+        for {
+            time.Sleep(time.Second)
+            setCount(count() + 1)
+        }
+    }()
+
+	return P(Text("Count: "), BindText(count))
+}
+```
+
 ### Reactivity
 
-Reactivity is what makes your UI react to changes.
+It is what makes your UI react to changes.
 
-It can be updating a color when a user click a button, or refreshing a list when a user fills an input.
+It can be updating a color when a user clicks a button, or refreshing a list when a user fills an input, or anything else related to a reaction to changes.
 
 ```go {style=tokyonight-moon}
 import (
@@ -76,7 +101,7 @@ func MyComponent() Node {
     return Fragment(
         // note the use of BindText().
         // reactivity is explicit in loom.
-        // you decide what part of the tree gets to update.
+        // read the BINDING guide to learn more
         P(Text("You typed: "), BindText(text)),
 
         InputText(On("input", udpate)),
@@ -92,8 +117,16 @@ Or if you want to understand more about using reactivity, you can read the full 
 
 ### Renderer
 
-**Official renderers:**
+By itself, loom cannot display anything on your screen. It needs a Renderer for that.
+
+A Renderer is responsible for displaying content on screen by providing plateform-specific components for the use to build a UI with. For instance a web renderer would provide DOM components like \<div\> or \<ul\> to the user. While a theoretical mobile renderer would provide native components for View, Text, ScrollView, etc.
+
+Think of it like ReactJS (except it's not). ReactJS is the core framework. ReactDOM is the web renderer (reconciler in that case), and ReactNative is the mobile renderer.
+
+**There's currently two official renderers:**
 
 [*] [LOOM-TERM ->](/term/intro) | For building Terminal UIs.
 
 [*] [LOOM-WEB ->](/web/intro) | For building Web SPAs.
+
+If you'd like to get started you with one of the two -> [GET STARTED](/docs/getting-started)
