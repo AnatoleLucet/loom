@@ -12,13 +12,13 @@ You define declarative components written in pure Go, and loom renders them usin
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
-// define your components
+// define your component
 func Counter() Node {
 	count, setCount := Signal(0)
 
     go func() {
         for {
-            time.Sleep(time.Second)
+            time.Sleep(time.Second / 30)
             setCount(count() + 1)
         }
     }()
@@ -30,21 +30,23 @@ func main() {
 	app := term.NewApp()
 
     // render it using our terminal renderer
-    errs := app.Run(term.RenderFullscreen, Counter)
+    errs := app.Run(term.RenderInline, Counter)
 }
 ```
+
+<video src="/medias/counter-term.mp4" autoplay loop muted></video>
 
 {{< /tab >}}
 {{< tab >}}
 
 ```go {style=tokyonight-moon}
-// define your components
+// define your component
 func Counter() Node {
 	count, setCount := Signal(0)
 
     go func() {
         for {
-            time.Sleep(time.Second)
+            time.Sleep(time.Second / 30)
             setCount(count() + 1)
         }
     }()
@@ -60,8 +62,9 @@ func main() {
 }
 ```
 
-{{< /tab >}}
+<video src="/medias/counter-web.mp4" autoplay loop muted></video>
 
+{{< /tab >}}
 {{< /tabs >}}
 
 If you're coming from JavaScript, this should feel very familiar.

@@ -17,6 +17,8 @@ A Node is responsible for displaying, updating, and destroying one or more parts
 
 But you will most likely never write a Node yourself. They are low-level and mostly spesific to [renderers](#renderer). Instead you will interact with higher-level abtractions built on top of them ([components](#component)).
 
+---
+
 ### Component
 
 Components are an abstraction on top of [nodes](#node).
@@ -78,6 +80,8 @@ func Counter() Node {
 }
 ```
 
+---
+
 ### Reactivity
 
 It is what makes your UI react to changes.
@@ -115,18 +119,20 @@ If you're coming from a JS framework, make sure you read -> [SIGNALS SCHEDULING]
 
 Or if you want to understand more about using reactivity, you can read the full guide -> [REACTIVITY](/docs/guides/reactivity)
 
+---
+
 ### Renderer
 
 By itself, loom cannot display anything on your screen. It needs a Renderer for that.
 
 A Renderer is responsible for displaying content on screen by providing plateform-specific components for the use to build a UI with. For instance a web renderer would provide DOM components like \<div\> or \<ul\> to the user. While a theoretical mobile renderer would provide native components for View, Text, ScrollView, etc.
 
-Think of it like ReactJS (except it's not). ReactJS is the core framework. ReactDOM is the web renderer (reconciler in that case), and ReactNative is the mobile renderer.
-
 **There's currently two official renderers:**
 
 [*] [LOOM-TERM ->](/term/intro) | For building Terminal UIs.
 
 [*] [LOOM-WEB ->](/web/intro) | For building Web SPAs.
+
+<br/>
 
 If you'd like to get started you with one of the two -> [GET STARTED](/docs/getting-started)

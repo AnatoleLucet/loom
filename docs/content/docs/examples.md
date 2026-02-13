@@ -12,16 +12,18 @@ weight: 10
 func Counter() Node {
 	count, setCount := Signal(0)
 
-    go func() {
-        for {
-            time.Sleep(time.Second)
+    go func(self Component) {
+        for !self.IsDisposed() {
+            time.Sleep(time.Second / 30)
             setCount(count() + 1)
         }
-    }()
+    }(Self())
 
 	return P(Text("Count: "), BindText(count))
 }
 ```
+
+<video src="/medias/counter-term.mp4" autoplay loop muted></video>
 
 {{< /tab >}}
 {{< tab >}}
@@ -30,21 +32,23 @@ func Counter() Node {
 func Counter() Node {
 	count, setCount := Signal(0)
 
-    go func() {
-        for {
-            time.Sleep(time.Second)
+    go func(self Component) {
+        for !self.IsDisposed() {
+            time.Sleep(time.Second / 30)
             setCount(count() + 1)
         }
-    }()
+    }(Self())
 
 	return P(Text("Count: "), BindText(count))
 }
 ```
 
+<video src="/medias/counter-web.mp4" autoplay loop muted></video>
+
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< rawhtml >}}<br/>{{< /rawhtml >}}
+<br/>
 
 #### Conditions
 
@@ -93,7 +97,7 @@ func Condition() Node {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< rawhtml >}}<br/>{{< /rawhtml >}}
+<br/>
 
 #### Lists
 
@@ -136,7 +140,7 @@ func FruitList() Node {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< rawhtml >}}<br/>{{< /rawhtml >}}
+<br/>
 
 #### User input
 

@@ -6,11 +6,7 @@ description: "The component framework for Go."
 
 ---
 
-{{< rawhtml >}}
-
 <h1 align="center">「#」</h1>
-
-{{< /rawhtml >}}
 
 ```go {style=tokyonight-moon}
 func App() Node {

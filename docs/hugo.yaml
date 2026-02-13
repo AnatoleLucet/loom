@@ -23,16 +23,21 @@ cascade:
   prev: false
   breadcrumbs: false
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 menu:
   main:
     - name: DOCS
-      pageRef: /docs/intro
+      pageRef: /docs
       weight: 1
     - name: TERM
-      pageRef: /term/intro
+      pageRef: /term
       weight: 2
     - name: WEB
-      pageRef: /web/intro
+      pageRef: /web
       weight: 3
     - name: BLOG
       pageRef: /blog

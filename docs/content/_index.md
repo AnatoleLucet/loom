@@ -3,16 +3,12 @@ title: ""
 toc: false
 ---
 
-{{< rawhtml >}}
-
 <div id="home-hero">
     <h1 class="not-prose">「#」</h1>
     <p>The reactive framework for Go.</p>
     <br/>
-    <a href="/docs/getting-started">GET STARTED -></a>
+    <a href="/docs/intro">GET STARTED -></a>
 </div>
-
-{{< /rawhtml >}}
 
 ---
 
@@ -22,9 +18,7 @@ It lets you write surprisingly concise UI components in pure Go, that can be bro
 
 If you're coming from SolidJS or ReactJS, you'll feel right at home.
 
-{{< rawhtml >}}
-<br/><br/>
-{{< /rawhtml >}}
+<br/>
 
 #### A simple counter
 
@@ -34,7 +28,7 @@ func Counter() Node {
 
     go func() {
         for {
-            time.Sleep(time.Second)
+            time.Sleep(time.Second / 30)
             setCount(count() + 1)
         }
     }()
@@ -43,13 +37,9 @@ func Counter() Node {
 }
 ```
 
-{{< rawhtml >}}
-
+<video src="/medias/counter-term.mp4" autoplay loop muted></video>
 <a href="/docs/examples" class="hx:text-sm">MORE EXAMPLES -></a>
-<br/>
-<br/>
-
-{{< /rawhtml >}}
+<br />
 
 ---
 
@@ -59,13 +49,11 @@ func Counter() Node {
 
 [*] **Multi-plateform** | The only thing loom needs is a [renderer](/docs/concepts.md#renderer). Build a UI for your calculator if you want.
 
-[*] **Signal-based** | Performant fine-grained reactive updates. You [decide](/docs/components/bind) what part of the tree gets to update.
+[*] **Signal-based** | Performant fine-grained reactive updates. You [decide](/docs/guides/binding) what part of the tree gets to update.
 
 [*] **Concurrency-safe** | Run goroutines from your components and update signals from them. It's built for that!
 
 ---
-
-{{< rawhtml >}}
 
 <div id="home-bottom-hero">
     <h3>GET STARTED</h3>
@@ -73,5 +61,3 @@ func Counter() Node {
     <a href="/term/getting-started">LOOM-TERM -></a>
     <a href="/web/getting-started">LOOM-WEB -></a>
 </div>
-
-{{< /rawhtml >}}
