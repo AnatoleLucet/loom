@@ -58,6 +58,23 @@ func Counter() Node {
 <div id="home-bottom-hero">
     <h3>GET STARTED</h3>
     <br/>
-    <a href="/term/getting-started">LOOM-TERM -></a>
-    <a href="/web/getting-started">LOOM-WEB -></a>
+    <p align="center">
+        <a href="/docs">LOOM -></a>
+        <br/>
+        The core framework.
+        <br/>
+        -------------------
+        <br/><br/><br/>
+        <a href="/term/getting-started">LOOM-TERM -></a>
+        <br/>
+        For powerful Terminal UIs.
+        <br/>
+        --------------------------
+        <br/><br/><br/>
+        <a href="/web/getting-started">LOOM-WEB -></a>
+        <br/>
+        For simple Web SPAs.
+        <br/>
+        --------------------
+    </p>
 </div>
