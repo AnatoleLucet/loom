@@ -37,7 +37,7 @@ func Counter() Node {
 }
 ```
 
-<video src="/medias/counter-term.mp4" autoplay loop muted></video>
+<video src="/medias/counter-term.mp4" autoplay loop muted playsinline></video>
 <a href="/docs/examples" class="hx:text-sm">MORE EXAMPLES -></a>
 <br />
 

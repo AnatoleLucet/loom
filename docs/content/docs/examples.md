@@ -23,7 +23,7 @@ func Counter() Node {
 }
 ```
 
-<video src="/medias/counter-term.mp4" autoplay loop muted></video>
+<video src="/medias/counter-term.mp4" autoplay loop muted playsinline></video>
 
 {{< /tab >}}
 {{< tab >}}
@@ -43,7 +43,7 @@ func Counter() Node {
 }
 ```
 
-<video src="/medias/counter-web.mp4" autoplay loop muted></video>
+<video src="/medias/counter-web.mp4" autoplay loop muted playsinline></video>
 
 {{< /tab >}}
 {{< /tabs >}}
