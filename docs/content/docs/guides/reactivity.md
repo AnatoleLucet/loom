@@ -193,4 +193,4 @@ setCount(12)
 ```
 
 If this is your first encounter with a reactive system, it might seem like a very obvious behavior.
-But it is certainly not for users coming from an ~asynchronous reactive system like SolidJS's or Svelte's.
+But it is certainly not for users coming from an ~asynchronous reactive system like SolidJS's or Svelte's, or event ReactJS's.

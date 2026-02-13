@@ -48,9 +48,12 @@ func MyComponent() Node {
     return Fragment( // using the Fragment() component from loom
         P(Text("hello")), // P() and Text() from the loom-term renderer
 
-        Apply(Style{ // also from loom-term
-            BackgroundColor: "#ffc0cb"
-        }),
+        P(
+            Text("hello in pink"),
+            Apply(Style{ // also from loom-term
+                BackgroundColor: "#ffc0cb"
+            }),
+        ),
     ),
 }
 ```
@@ -86,7 +89,7 @@ func Counter() Node {
 
 It is what makes your UI react to changes.
 
-It can be updating a color when a user clicks a button, or refreshing a list when a user fills an input, or anything else related to a reaction to changes.
+It can be updating a color when a user clicks a button, or refreshing a list when a user fills an input, or anything else related to a reaction from change.
 
 ```go {style=tokyonight-moon}
 import (
@@ -135,4 +138,4 @@ A Renderer is responsible for displaying content on screen by providing platefor
 
 <br/>
 
-If you'd like to get started you with one of the two -> [GET STARTED](/docs/getting-started)
+If you'd like to get started with one of the two -> [GET STARTED](/docs/getting-started)

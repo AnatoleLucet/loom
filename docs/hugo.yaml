@@ -1,12 +1,15 @@
 baseURL: https://loomui.dev
 languageCode: en-us
 title: loom
-
 module:
   imports:
     - path: github.com/imfing/hextra
 
+outputs:
+  home: [html, llms]
+
 params:
+  description: The reactive component framework for Go.
   search:
     enable: false
   navbar:
@@ -43,7 +46,16 @@ menu:
       pageRef: /blog
       weight: 4
     - name: "|"
+      identifier: "spacer-1"
       weight: 5
     - name: "GITHUB"
       weight: 6
       url: "https://github.com/AnatoleLucet/loom"
+    - name: "|"
+      identifier: "spacer-2"
+      weight: 7
+    - name: "THEME"
+      weight: 8
+      params:
+        type: theme-toggle
+        label: false

@@ -14,10 +14,6 @@
   font-variant-ligatures: none;
 }
 
-.hextra-nav-container {
-  border-bottom: 0px solid var(--hx-color-dark);
-}
-
 .nav-link:not(.nolink):not([rel="noreferrer"])::before,
 .sidebar-item::before,
 .tabs-toggle::before {
@@ -85,6 +81,15 @@ video {
 
 .hextra-tabs-toggle[aria-selected="true"]:where(.dark, .dark *) {
   color: var(--hx-color-gray-200);
+}
+
+.hextra-theme-toggle {
+  /* roughly align with the navbar, this needs to be reworked... */
+  height: calc(var(--navbar-height) - 6px);
+}
+
+.g-10 {
+  gap: 10px;
 }
 
 .uppercase {
