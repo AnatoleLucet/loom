@@ -3,6 +3,9 @@ go 1.25.6
 use (
 	./core
 	./docs
+	./examples/term/console
+	./examples/term/counter
+	./examples/term/styling
 	./renderers/term
 	./renderers/web
 )
