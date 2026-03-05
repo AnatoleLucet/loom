@@ -5,6 +5,9 @@ use (
 	./docs
 	./examples/term/console
 	./examples/term/counter
+	./examples/term/inline-vs-fullscreen
+	./examples/term/input
+	./examples/term/scrollbox
 	./examples/term/styling
 	./renderers/term
 	./renderers/web
