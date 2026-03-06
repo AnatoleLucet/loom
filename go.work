@@ -9,6 +9,7 @@ use (
 	./examples/term/input
 	./examples/term/scrollbox
 	./examples/term/styling
+	./examples/term/todolist
 	./renderers/term
 	./renderers/web
 )
