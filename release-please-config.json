@@ -1,20 +1,23 @@
 {
+  "release-type": "go",
+  "tag-separator": "/",
+  "separate-pull-requests": false,
+  "include-component-in-tag": true,
   "packages": {
     "core": {
       "package-name": "github.com/AnatoleLucet/loom",
+      "component": "core",
       "bump-minor-pre-major": true
     },
     "renderers/term": {
       "package-name": "github.com/AnatoleLucet/loom-term",
+      "component": "renderers/term",
       "bump-minor-pre-major": true
     },
     "renderers/web": {
       "package-name": "github.com/AnatoleLucet/loom-web",
+      "component": "renderers/web",
       "bump-minor-pre-major": true
     }
-  },
-  "separate-pull-requests": false,
-  "always-update": true,
-  "always-link-local": true,
-  "release-type": "go"
+  }
 }
