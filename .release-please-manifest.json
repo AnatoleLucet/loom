@@ -1,5 +1,5 @@
 {
-  "core": "0.0.0",
-  "renderers/term": "0.0.0",
-  "renderers/web": "0.0.0"
+  "core": "0.1.0",
+  "renderers/term": "0.1.0",
+  "renderers/web": "0.1.0"
 }
