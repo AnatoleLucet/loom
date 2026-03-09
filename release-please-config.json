@@ -1,0 +1,20 @@
+{
+  "packages": {
+    "core": {
+      "package-name": "github.com/AnatoleLucet/loom",
+      "bump-minor-pre-major": true
+    },
+    "renderers/term": {
+      "package-name": "github.com/AnatoleLucet/loom-term",
+      "bump-minor-pre-major": true
+    },
+    "renderers/web": {
+      "package-name": "github.com/AnatoleLucet/loom-web",
+      "bump-minor-pre-major": true
+    }
+  },
+  "separate-pull-requests": false,
+  "always-update": true,
+  "always-link-local": true,
+  "release-type": "go"
+}
